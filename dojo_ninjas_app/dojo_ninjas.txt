@@ -1,0 +1,47 @@
+django-admin startproject dojo_ninjas_proj
+cd dojo_ninjas_proj 
+python3 manage.py startapp dojo_ninjas_app
+code .
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py shell
+from dojo_ninja_app.models import Dojo
+from dojo_ninjas_app.models import Ninja
+Dojo.objects.create(name='Mira', city='New York', state='NY')
+Dojo.objects.create(name='Peter', city='Sacramento', state='CA')
+Dojo.objects.create(name='Frank', city='Austin', state='TX')
+mira=Dojo.objects.get(id=1)
+mira.delete()
+peter=Dojo.objects.get(id=2)
+peter.delete()
+frank=Dojo.objects.get(id=3)
+frank.delete()
+Dojo.objects.create(name='Sasha', city='Bismarck', state='ND')
+Dojo.objects.create(name='Hans', city='Pierre', state='SD')
+Dojo.objects.create(name='Steve', city='Denver', state='CO')
+sasha=Dojo.objects.get(id=4)
+sasha.save()
+ninja1=Ninja.objects.create(first_name='FirstFirstName', last_name='FirstLastName', dojo=sasha)
+ninja2=Ninja.objects.create(first_name='FirstFirstName', last_name='FirstLastName', dojo=sasha)
+ninja3=Ninja.objects.create(first_name='FirstFirstName', last_name='FirstLastName', dojo=sasha)
+hans=Dojo.objects.get(id=5)
+hans.save()
+ninja4=Ninja.objects.create(first_name='SecondFirstName', last_name='SecondLastName', dojo=hans)
+ninja5=Ninja.objects.create(first_name='SecondFirstName', last_name='SecondLastName', dojo=hans)
+ninja6=Ninja.objects.create(first_name='SecondFirstName', last_name='SecondLastName', dojo=hans)
+steve=Dojo.objects.get(id=6)
+ninja7=Ninja.objects.create(first_name='ThirdFirstName', last_name='ThirdLastName', dojo=steve)
+ninja8=Ninja.objects.create(first_name='ThirdFirstName', last_name='ThirdLastName', dojo=steve)
+ninja9=Ninja.objects.create(first_name='ThirdFirstName', last_name='ThirdLastName', dojo=steve)
+Dojo.objects.first().ninjas.all()
+Dojo.objects.last().ninjas.all()
+Ninja.objects.last().dojo
+exit()
+python3 manage.py makemigrations
+1
+"old dojo"
+python3 manage.py migrate
+python3 manage.py shell
+from dojo_ninjas_app.models import Dojo, Ninja
+Dojo.objects.create(name='Mary', city='New York', state='NY', desc='best dojo')
+
