@@ -15,9 +15,4 @@ def ninjas_create(request):
     Ninja.objects.create(first_name=request.POST['first_name'], last_name=request.POST['last_name'],dojo = Dojo.objects.get(id=request.POST['dojo']))
     return redirect('/')  
 
-# def delete_dojo(request, dojo_id):
-#     dojo=Dojo.objects.get(pk=dojo_id)
-#     dojo.delete()   
-#     return render(request, 'dojo_ninjas.html')
-
 
